@@ -1,0 +1,6 @@
+{
+    "require": {
+        "bshaffer/oauth2-server-php": "v0.9",
+        "mobiledetect/mobiledetectlib":"v2.6.6"
+    }
+}

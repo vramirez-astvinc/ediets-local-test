@@ -1,0 +1,98 @@
+[
+    {
+        "name": "mobiledetect/mobiledetectlib",
+        "version": "2.6.6",
+        "version_normalized": "2.6.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/serbanghita/Mobile-Detect.git",
+            "reference": "2.6.6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/2.6.6",
+            "reference": "2.6.6",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.0.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "*"
+        },
+        "time": "2013-08-03 13:07:23",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "Mobile_Detect.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Serban Ghita",
+                "email": "serbanghita@gmail.com",
+                "homepage": "http://mobiledetect.net",
+                "role": "Developer"
+            }
+        ],
+        "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
+        "homepage": "https://github.com/serbanghita/Mobile-Detect",
+        "keywords": [
+            "detect mobile devices",
+            "mobile",
+            "mobile detect",
+            "mobile detector",
+            "php mobile detect"
+        ]
+    },
+    {
+        "name": "bshaffer/oauth2-server-php",
+        "version": "v0.9",
+        "version_normalized": "0.9.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bshaffer/oauth2-server-php.git",
+            "reference": "v0.9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bshaffer/oauth2-server-php/zipball/v0.9",
+            "reference": "v0.9",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "time": "2013-06-06 19:13:38",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "OAuth2": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Brent Shaffer",
+                "email": "bshafs@gmail.com",
+                "homepage": "http://github.com/bshaffer"
+            }
+        ],
+        "description": "OAuth2 Server for PHP",
+        "homepage": "http://github.com/bshaffer/oauth2-server-php",
+        "keywords": [
+            "auth",
+            "oauth",
+            "oauth2"
+        ]
+    }
+]

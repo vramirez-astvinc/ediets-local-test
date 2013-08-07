@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customer>
+  <accepts-marketing type="boolean">true</accepts-marketing>
+  <created-at type="datetime">2013-07-23T09:33:54-04:00</created-at>
+  <email>nicole@test.us</email>
+  <first-name>Vanessa</first-name>
+  <id type="integer">134956024</id>
+  <last-name>Ramirez</last-name>
+  <last-order-id type="integer" nil="true"/>
+  <multipass-identifier nil="true"/>
+  <note nil="true"/>
+  <orders-count type="integer">0</orders-count>
+  <state>enabled</state>
+  <total-spent type="decimal">0.00</total-spent>
+  <updated-at type="datetime">2013-07-23T09:51:08-04:00</updated-at>
+  <verified-email type="boolean">true</verified-email>
+  <tags></tags>
+  <last-order-name nil="true"/>
+  <default-address>
+    <address1>1000 Happy St</address1>
+    <address2></address2>
+    <city>Miami</city>
+    <company></company>
+    <country>United States</country>
+    <first-name>Vanessa</first-name>
+    <id type="integer">178042243</id>
+    <last-name>Ramirez</last-name>
+    <phone>3333333333</phone>
+    <province>Florida</province>
+    <zip>33133</zip>
+    <name>Vanessa Ramirez</name>
+    <province-code>FL</province-code>
+    <country-code>US</country-code>
+    <country-name>United States</country-name>
+    <default type="boolean">true</default>
+  </default-address>
+  <addresses type="array">
+    <address>
+      <address1>1000 Happy St</address1>
+      <address2></address2>
+      <city>Miami</city>
+      <company></company>
+      <country>United States</country>
+      <first-name>Vanessa</first-name>
+      <id type="integer">178042243</id>
+      <last-name>Ramirez</last-name>
+      <phone>3333333333</phone>
+      <province>Florida</province>
+      <zip>33133</zip>
+      <name>Vanessa Ramirez</name>
+      <province-code>FL</province-code>
+      <country-code>US</country-code>
+      <country-name>United States</country-name>
+      <default type="boolean">true</default>
+    </address>
+  </addresses>
+</customer>

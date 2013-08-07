@@ -1,0 +1,57 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'unique_key' => 'text',
+  'related_objects' => 
+  array (
+    'Action' => 
+    array (
+      'f7baa9c97d722104019d1a0f40e96f8f' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 
+        array (
+          0 => 'namespace',
+          1 => 'controller',
+        ),
+        'class' => 'modAction',
+        'object' => '{"id":1,"namespace":"modoauth","controller":"index","haslayout":1,"lang_topics":"modoauth:default","assets":"","help_url":"","parent":0}',
+        'guid' => '3515d010b7a5d3acd3ef772e4c736591',
+        'native_key' => 1,
+        'signature' => 'be4b38aec3d95dce8af85a3d77d07ea4',
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Action' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 
+      array (
+        0 => 'namespace',
+        1 => 'controller',
+      ),
+    ),
+  ),
+  'namespace' => 'modoauth',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'php',
+      'body' => '{"source":"modoauth-1.0-beta9\\/modMenu\\/80406db5e7462131db72b873ccfc0d94.resolve.tables.resolver","type":"php","name":"resolve.tables"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '3668aecc983ebb30d2497fe7adfc5382',
+  'package' => 'modx',
+  'class' => 'modMenu',
+  'signature' => '80406db5e7462131db72b873ccfc0d94',
+  'native_key' => 'modoauth',
+  'object' => '{"text":"modoauth","parent":"components","action":1,"description":"modoauth.desc","icon":"images\\/icons\\/plugin.gif","menuindex":0,"params":"","handler":"","permissions":""}',
+);

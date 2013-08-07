@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customer>
+  <accepts-marketing type="boolean">true</accepts-marketing>
+  <created-at type="datetime" nil="true"/>
+  <email>bob@biller.com</email>
+  <first-name>Bob</first-name>
+  <id type="integer" nil="true"/>
+  <last-name>Biller</last-name>
+  <last-order-id type="integer" nil="true"/>
+  <multipass-identifier nil="true"/>
+  <note>This customer loves ice cream</note>
+  <orders-count type="integer">0</orders-count>
+  <state>disabled</state>
+  <total-spent type="decimal">0.00</total-spent>
+  <updated-at type="datetime" nil="true"/>
+  <verified-email type="boolean">true</verified-email>
+  <tags></tags>
+  <last-order-name nil="true"/>
+  <addresses type="array"/>
+</customer>

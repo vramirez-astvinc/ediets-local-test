@@ -1,0 +1,5 @@
+Changelog file for ModoAuth2 component.
+ 
+ModoAuth 1.0
+====================================
+- oAuth2 provider in ModX that returns profile data once user is authenticated and access is granted to client.

@@ -1,0 +1,96 @@
+<?php return array (
+  'unique_key' => 'category',
+  'preserve_keys' => false,
+  'update_object' => true,
+  'related_objects' => 
+  array (
+    'Chunks' => 
+    array (
+      '185aa61f38252dd314d5fc8e3420e90a' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modChunk',
+        'object' => '{"id":0,"source":0,"property_preprocess":0,"name":"authLoginForm","description":"Chunk that will contain the call to your desired login extra. By default we are using Login since it allows us to redirect back to authorize snippet once iuser is authenticated.","editor_type":0,"category":0,"cache_type":0,"snippet":"[[!Login? &loginResourceId=[[+authResourceId]] &loginTpl=[[+loginTpl]]]]","locked":0,"properties":"a:0:{}","static":0,"static_file":"","content":"[[!Login? &loginResourceId=[[+authResourceId]] &loginTpl=[[+loginTpl]]]]"}',
+        'guid' => '54847d24013e26073cfde2cf7d699b92',
+        'native_key' => 0,
+        'signature' => 'a29037f8382b032b97586ae3214a215c',
+      ),
+    ),
+    'Snippets' => 
+    array (
+      '7dbd3157188800b741901443cb0bd071' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":2,"source":0,"property_preprocess":0,"name":"Authorize","description":"Grants Authorization Code.","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/\\/ Include our OAuth2 Server object\\n$defaultCorePath = $modx->getOption(\'core_path\').\'components\\/modoauth\\/\';\\n$modaouthCorePath = $modx->getOption(\'modoauth.core_path\',null,$defaultCorePath);\\n\\nrequire $modaouthCorePath.\'elements\\/snippets\\/snippet.server.php\';\\nrequire $modaouthCorePath.\'model\\/modoauth\\/request.class.php\';\\n\\n\\/\\/ Read properties\\n$tpl = $modx->getOption(\'tpl\', $scriptProperties);\\n$loginTpl = $modx->getOption(\'loginTpl\', $scriptProperties);\\n$authResourceId = $modx->getOption(\'authResourceId\', $scriptProperties);\\n\\n$modx->log(modX::LOG_LEVEL_DEBUG\\n    , \'[ModoAuth] called on page \'. $modx->resource->id . \' with the following parameters: \'\\n    .print_r($scriptProperties, true));\\n\\n\\/\\/ Verify Inputs\\nif (!isset($scriptProperties[\'authResourceId\'])) {\\n    $modx->log(modX::LOG_LEVEL_ERROR, \'[ModoAuth:Authorize] missing required parameters &authResourceId!\');\\n    return;\\n}\\n\\n\\n\\/\\/Get service\\n$modoauth = $modx->getService(\'modoauth\',\'ModoAuth\',$modaouthCorePath.\'model\\/modoauth\\/\',$scriptProperties);\\n\\nif (!($modoauth instanceof ModoAuth)) return \'\';\\n\\n\\/\\/Creating request and response. Request is an extended class of oAuth2\\\\Request\\n$request = ModoAuthRequest::createFromGlobals();\\n$response = new OAuth2_Response();\\n\\n\\/\\/ validate the authorize request\\nif (!$server->validateAuthorizeRequest($request, $response)) {\\n    $response->send();\\n    die;\\n}\\n    \\nif($modx->user->isAuthenticated(\'web\') ){\\n\\n    $is_authorized = true;\\n    $user_id = $modx->user->get(\'id\');\\n    \\n    $modx->log(modX::LOG_LEVEL_DEBUG, \'[ModoAuth:Authorize] User is authenticated\');\\n    \\n}else{\\n    \\n    \\/\\/Set client credentials in $_SESSION. ModoAuthRequest will read them from $_SESSION.\\n    $_SESSION[\'modoauth\']= array(\\n      \'modoauth-clientid\' => $request->query(\'client_id\'),\\n      \'modoauth-responsetype\'=>$request->query(\'response_type\'),\\n      \'modoauth-state\'=>$request->query(\'state\')\\n    );\\n    \\n    \\/\\/Prompt login form\\n    $tpl = isset($tpl) ? $tpl : \'login\';\\n    $output = $modoauth->getChunk($tpl,array(\\n        \'loginTpl\'=>$loginTpl,\\n        \'authResourceId\'=>$authResourceId\\n    ));\\n    \\n    $modx->log(modX::LOG_LEVEL_DEBUG, \'[ModoAuth:Authorize] User is not authenticated... prompting login form...\');\\n\\n    return $output;\\n   \\n} \\n\\n$modx->log(modX::LOG_LEVEL_DEBUG, \'[ModoAuth:Authorize] Processing authorization for client:\'.$request->query(\'client_id\'));\\n\\n$server->handleAuthorizeRequest($request, $response, $is_authorized, $user_id);\\n\\nif ($is_authorized) {\\n\\n  $response->setRedirect(302, $response->getHttpHeader(\'Location\'));\\n  \\n  $modx->log(modX::LOG_LEVEL_DEBUG, \'[ModoAuth:Authorize] Redirecting to \'.$response->getHttpHeader(\'Location\'));\\n   \\n}\\n\\n$response->send();","locked":0,"properties":"a:0:{}","moduleguid":"","static":0,"static_file":"","content":"\\/\\/ Include our OAuth2 Server object\\n$defaultCorePath = $modx->getOption(\'core_path\').\'components\\/modoauth\\/\';\\n$modaouthCorePath = $modx->getOption(\'modoauth.core_path\',null,$defaultCorePath);\\n\\nrequire $modaouthCorePath.\'elements\\/snippets\\/snippet.server.php\';\\nrequire $modaouthCorePath.\'model\\/modoauth\\/request.class.php\';\\n\\n\\/\\/ Read properties\\n$tpl = $modx->getOption(\'tpl\', $scriptProperties);\\n$loginTpl = $modx->getOption(\'loginTpl\', $scriptProperties);\\n$authResourceId = $modx->getOption(\'authResourceId\', $scriptProperties);\\n\\n$modx->log(modX::LOG_LEVEL_DEBUG\\n    , \'[ModoAuth] called on page \'. $modx->resource->id . \' with the following parameters: \'\\n    .print_r($scriptProperties, true));\\n\\n\\/\\/ Verify Inputs\\nif (!isset($scriptProperties[\'authResourceId\'])) {\\n    $modx->log(modX::LOG_LEVEL_ERROR, \'[ModoAuth:Authorize] missing required parameters &authResourceId!\');\\n    return;\\n}\\n\\n\\n\\/\\/Get service\\n$modoauth = $modx->getService(\'modoauth\',\'ModoAuth\',$modaouthCorePath.\'model\\/modoauth\\/\',$scriptProperties);\\n\\nif (!($modoauth instanceof ModoAuth)) return \'\';\\n\\n\\/\\/Creating request and response. Request is an extended class of oAuth2\\\\Request\\n$request = ModoAuthRequest::createFromGlobals();\\n$response = new OAuth2_Response();\\n\\n\\/\\/ validate the authorize request\\nif (!$server->validateAuthorizeRequest($request, $response)) {\\n    $response->send();\\n    die;\\n}\\n    \\nif($modx->user->isAuthenticated(\'web\') ){\\n\\n    $is_authorized = true;\\n    $user_id = $modx->user->get(\'id\');\\n    \\n    $modx->log(modX::LOG_LEVEL_DEBUG, \'[ModoAuth:Authorize] User is authenticated\');\\n    \\n}else{\\n    \\n    \\/\\/Set client credentials in $_SESSION. ModoAuthRequest will read them from $_SESSION.\\n    $_SESSION[\'modoauth\']= array(\\n      \'modoauth-clientid\' => $request->query(\'client_id\'),\\n      \'modoauth-responsetype\'=>$request->query(\'response_type\'),\\n      \'modoauth-state\'=>$request->query(\'state\')\\n    );\\n    \\n    \\/\\/Prompt login form\\n    $tpl = isset($tpl) ? $tpl : \'login\';\\n    $output = $modoauth->getChunk($tpl,array(\\n        \'loginTpl\'=>$loginTpl,\\n        \'authResourceId\'=>$authResourceId\\n    ));\\n    \\n    $modx->log(modX::LOG_LEVEL_DEBUG, \'[ModoAuth:Authorize] User is not authenticated... prompting login form...\');\\n\\n    return $output;\\n   \\n} \\n\\n$modx->log(modX::LOG_LEVEL_DEBUG, \'[ModoAuth:Authorize] Processing authorization for client:\'.$request->query(\'client_id\'));\\n\\n$server->handleAuthorizeRequest($request, $response, $is_authorized, $user_id);\\n\\nif ($is_authorized) {\\n\\n  $response->setRedirect(302, $response->getHttpHeader(\'Location\'));\\n  \\n  $modx->log(modX::LOG_LEVEL_DEBUG, \'[ModoAuth:Authorize] Redirecting to \'.$response->getHttpHeader(\'Location\'));\\n   \\n}\\n\\n$response->send();"}',
+        'guid' => '8a0d80673a9868ab986d7aa1b8c240fb',
+        'native_key' => 2,
+        'signature' => '2e2e2a32e2e186e3fca96b5f71790db7',
+      ),
+      '345b2bb82b31c1a6908f1485b2ff9d12' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":3,"source":0,"property_preprocess":0,"name":"Token","description":"Grants Token.","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/\\/ include our OAuth2 Server object\\n$defaultCorePath = $modx->getOption(\'core_path\').\'components\\/modoauth\\/\';\\n$modaouthCorePath = $modx->getOption(\'modoauth.core_path\',null,$defaultCorePath);\\n\\nrequire_once $modaouthCorePath.\'elements\\/snippets\\/snippet.server.php\';\\n\\n\\/\\/ Handle a request for an OAuth2.0 Access Token and send the response to the client\\n$server->handleTokenRequest(OAuth2_Request::createFromGlobals(), new OAuth2_Response())->send();","locked":0,"properties":"a:0:{}","moduleguid":"","static":0,"static_file":"","content":"\\/\\/ include our OAuth2 Server object\\n$defaultCorePath = $modx->getOption(\'core_path\').\'components\\/modoauth\\/\';\\n$modaouthCorePath = $modx->getOption(\'modoauth.core_path\',null,$defaultCorePath);\\n\\nrequire_once $modaouthCorePath.\'elements\\/snippets\\/snippet.server.php\';\\n\\n\\/\\/ Handle a request for an OAuth2.0 Access Token and send the response to the client\\n$server->handleTokenRequest(OAuth2_Request::createFromGlobals(), new OAuth2_Response())->send();"}',
+        'guid' => 'dd935a66af196008bd5abb46f63899f9',
+        'native_key' => 3,
+        'signature' => '18898e8b024dbfa5bf29dc088666a718',
+      ),
+      '430ab45579ba12bec2966dc231dd9997' => 
+      array (
+        'preserve_keys' => false,
+        'update_object' => true,
+        'unique_key' => 'name',
+        'class' => 'modSnippet',
+        'object' => '{"id":4,"source":0,"property_preprocess":0,"name":"Resource","description":"Grants Resources.","editor_type":0,"category":0,"cache_type":0,"snippet":"\\/\\/ include our OAuth2 Server object\\n$defaultCorePath = $modx->getOption(\'core_path\').\'components\\/modoauth\\/\';\\n$modaouthCorePath = $modx->getOption(\'modoauth.core_path\',null,$defaultCorePath);\\n\\nrequire_once $modaouthCorePath.\'elements\\/snippets\\/snippet.server.php\';\\n\\n\\/\\/ Handle a request for an OAuth2.0 Access Token and send the response to the client\\nif (!$server->verifyResourceRequest(OAuth2_Request::createFromGlobals(), new OAuth2_Response())) {\\n    $server->getResponse()->send();\\n    die;\\n}\\n\\n\\/\\/Return profile resource\\n$token = $server->getAccessTokenData(OAuth2_Request::createFromGlobals(), new OAuth2_Response());\\n$userId = $token[\'user_id\'];\\n\\nif (empty($userId)){\\n    \\n    echo json_encode(array(\'success\' => false, \'message\' => \'There is no user id associated with this token\'));\\n    \\n}else{\\n    $user = $modx->getObject(\'modUser\',$userId);\\n    $profile = $user->getOne(\'Profile\');\\n\\n    if($user && $profile){\\n\\n        $data = array(\\n            \\"username\\"=>$user->get(\'username\'),\\n            \\"active\\"=>$user->get(\'active\'),\\n            \\"fullname\\"=>$profile->get(\'fullname\'),\\n            \\"email\\"=>$profile->get(\'email\'),\\n            \\"gender\\"=>$profile->get(\'gender\'),\\n            \\"dob\\"=>$profile->get(\'dob\'),\\n            \\"extended\\"=>$profile->get(\'extended\')\\n        );\\n\\n        echo json_encode(array(\'success\' => true, \'profile\'=>$data));\\n\\n    }else{\\n\\n        echo json_encode(array(\'success\' => false, \'message\' => \'Profile data could not be retrieved\'));\\n\\n    }\\n}","locked":0,"properties":"a:0:{}","moduleguid":"","static":0,"static_file":"","content":"\\/\\/ include our OAuth2 Server object\\n$defaultCorePath = $modx->getOption(\'core_path\').\'components\\/modoauth\\/\';\\n$modaouthCorePath = $modx->getOption(\'modoauth.core_path\',null,$defaultCorePath);\\n\\nrequire_once $modaouthCorePath.\'elements\\/snippets\\/snippet.server.php\';\\n\\n\\/\\/ Handle a request for an OAuth2.0 Access Token and send the response to the client\\nif (!$server->verifyResourceRequest(OAuth2_Request::createFromGlobals(), new OAuth2_Response())) {\\n    $server->getResponse()->send();\\n    die;\\n}\\n\\n\\/\\/Return profile resource\\n$token = $server->getAccessTokenData(OAuth2_Request::createFromGlobals(), new OAuth2_Response());\\n$userId = $token[\'user_id\'];\\n\\nif (empty($userId)){\\n    \\n    echo json_encode(array(\'success\' => false, \'message\' => \'There is no user id associated with this token\'));\\n    \\n}else{\\n    $user = $modx->getObject(\'modUser\',$userId);\\n    $profile = $user->getOne(\'Profile\');\\n\\n    if($user && $profile){\\n\\n        $data = array(\\n            \\"username\\"=>$user->get(\'username\'),\\n            \\"active\\"=>$user->get(\'active\'),\\n            \\"fullname\\"=>$profile->get(\'fullname\'),\\n            \\"email\\"=>$profile->get(\'email\'),\\n            \\"gender\\"=>$profile->get(\'gender\'),\\n            \\"dob\\"=>$profile->get(\'dob\'),\\n            \\"extended\\"=>$profile->get(\'extended\')\\n        );\\n\\n        echo json_encode(array(\'success\' => true, \'profile\'=>$data));\\n\\n    }else{\\n\\n        echo json_encode(array(\'success\' => false, \'message\' => \'Profile data could not be retrieved\'));\\n\\n    }\\n}"}',
+        'guid' => '25c2ba0a22c7f23e9b7eaafbb7a81605',
+        'native_key' => 4,
+        'signature' => '4fe94e91b78e3a624c774837949b3ba1',
+      ),
+    ),
+  ),
+  'related_object_attributes' => 
+  array (
+    'Chunks' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+    'Snippets' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 'name',
+    ),
+  ),
+  'namespace' => 'modoauth',
+  'resolve' => 
+  array (
+    0 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"modoauth-1.0-beta8\\/modCategory\\/3c80dcf3975a8c1b672468bd5d7ed9a8\\/0\\/","target":"return MODX_ASSETS_PATH . \'components\\/\';","name":"modoauth"}',
+    ),
+    1 => 
+    array (
+      'type' => 'file',
+      'body' => '{"source":"modoauth-1.0-beta8\\/modCategory\\/3c80dcf3975a8c1b672468bd5d7ed9a8\\/1\\/","target":"return MODX_CORE_PATH . \'components\\/\';","name":"modoauth"}',
+    ),
+  ),
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'c2fda515d1157a3346b32a2f4953af33',
+  'package' => 'modx',
+  'class' => 'modCategory',
+  'signature' => '3c80dcf3975a8c1b672468bd5d7ed9a8',
+  'native_key' => 1,
+  'object' => '{"id":1,"parent":0,"category":"ModoAuth"}',
+);

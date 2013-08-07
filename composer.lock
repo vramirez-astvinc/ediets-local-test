@@ -1,0 +1,117 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "7fef77880263085cb585924feecd9055",
+    "packages": [
+        {
+            "name": "bshaffer/oauth2-server-php",
+            "version": "v0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bshaffer/oauth2-server-php.git",
+                "reference": "v0.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bshaffer/oauth2-server-php/zipball/v0.9",
+                "reference": "v0.9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "OAuth2": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brent Shaffer",
+                    "email": "bshafs@gmail.com",
+                    "homepage": "http://github.com/bshaffer"
+                }
+            ],
+            "description": "OAuth2 Server for PHP",
+            "homepage": "http://github.com/bshaffer/oauth2-server-php",
+            "keywords": [
+                "auth",
+                "oauth",
+                "oauth2"
+            ],
+            "time": "2013-06-06 19:13:38"
+        },
+        {
+            "name": "mobiledetect/mobiledetectlib",
+            "version": "2.6.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/serbanghita/Mobile-Detect.git",
+                "reference": "2.6.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/2.6.6",
+                "reference": "2.6.6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Mobile_Detect.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Serban Ghita",
+                    "email": "serbanghita@gmail.com",
+                    "homepage": "http://mobiledetect.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
+            "homepage": "https://github.com/serbanghita/Mobile-Detect",
+            "keywords": [
+                "detect mobile devices",
+                "mobile",
+                "mobile detect",
+                "mobile detector",
+                "php mobile detect"
+            ],
+            "time": "2013-08-03 13:07:23"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ],
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}

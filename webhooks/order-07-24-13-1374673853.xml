@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customer>
+  <accepts-marketing type="boolean" nil="true"/>
+  <created-at type="datetime">2013-07-22T17:47:23-04:00</created-at>
+  <email>vanessa@test.us</email>
+  <first-name nil="true"/>
+  <id type="integer">134917992</id>
+  <last-name nil="true"/>
+  <last-order-id type="integer" nil="true"/>
+  <multipass-identifier nil="true"/>
+  <note nil="true"/>
+  <orders-count type="integer">0</orders-count>
+  <state>enabled</state>
+  <total-spent type="decimal">0.00</total-spent>
+  <updated-at type="datetime">2013-07-22T17:47:23-04:00</updated-at>
+  <verified-email type="boolean">true</verified-email>
+  <tags></tags>
+  <last-order-name nil="true"/>
+  <addresses type="array"/>
+</customer>
